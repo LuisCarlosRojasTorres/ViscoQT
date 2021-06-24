@@ -30,6 +30,20 @@ LinearViscoelasticMaterial::LinearViscoelasticMaterial()
     calculateEinf();
 }
 
+LinearViscoelasticMaterial::LinearViscoelasticMaterial(double E0, std::vector<double> Ei, std::vector<double> Taui,
+                                                       double c1, double c2, double Tref)
+{
+    this->E0 = E0;
+    this->Ei = Ei;
+    this->Taui = Taui;
+
+    this->c1 = c1;
+    this->c2 = c2;
+    this->Tref = Tref;
+
+    calculateEinf();
+}
+
 double LinearViscoelasticMaterial::getStorageModulus(double temperature, double frequency)
 {
     double ans = 0;
@@ -51,6 +65,43 @@ double LinearViscoelasticMaterial::getLossModulus(double temperature, double fre
 
     for( int i = 0; i<Taui.size(); i++){
         ans += Ei.at(i)*(w*at*Taui.at(i))/(1 + pow(w*at*Taui.at(i),2));
+    }
+    return ans;
+}
+
+std::vector<double> LinearViscoelasticMaterial::getStorageModulusVSTemperature(std::vector<double> temperature, double frequency)
+{
+    std::vector<double> ans;
+
+    for (double t : temperature){
+        ans.push_back(getStorageModulus(t,frequency));
+    }
+    return ans;
+}
+
+std::vector<double> LinearViscoelasticMaterial::getLossModulusVSTemperature(std::vector<double> temperature, double frequency)
+{
+    std::vector<double> ans;
+    for (double t : temperature){
+        ans.push_back(getLossModulus(t,frequency));
+    }
+    return ans;
+}
+
+std::vector<double> LinearViscoelasticMaterial::getStorageModulusVSFrequency(double temperature, std::vector<double> frequency)
+{
+    std::vector<double> ans;
+    for (double f : frequency){
+        ans.push_back(getStorageModulus(temperature,f));
+    }
+    return ans;
+}
+
+std::vector<double> LinearViscoelasticMaterial::getLossModulusVSFrequency(double temperature, std::vector<double> frequency)
+{
+    std::vector<double> ans;
+    for (double f : frequency){
+        ans.push_back(getLossModulus(temperature,f));
     }
     return ans;
 }
