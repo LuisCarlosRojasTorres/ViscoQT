@@ -7,6 +7,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+class LinearViscoelasticMaterial;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -28,5 +30,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    LinearViscoelasticMaterial *pu;
 };
 #endif // MAINWINDOW_H

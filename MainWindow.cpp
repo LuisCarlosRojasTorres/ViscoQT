@@ -1,5 +1,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+#include "LinearViscoelasticMaterial.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -8,6 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     setActionsForTemperatureAndFrequency();
+
+    pu = new LinearViscoelasticMaterial();
+
+    std::cout << "Ep: " << pu->getStorageModulus(20,0.05) << std::endl;
+    std::cout << "Epp: " << pu->getLossModulus(20,0.05) << std::endl;
 
 }
 
