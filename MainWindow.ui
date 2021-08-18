@@ -29,7 +29,7 @@
      </property>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -518,7 +518,7 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionNew_Material"/>
+    <addaction name="action_newMaterial"/>
     <addaction name="actionOpen_Material"/>
     <addaction name="actionSave_Material_as_a_JSON"/>
    </widget>
@@ -542,7 +542,7 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionNew_Material">
+  <action name="action_newMaterial">
    <property name="text">
     <string>New Material</string>
    </property>

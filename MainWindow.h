@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "DlgNewMaterial.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -31,5 +33,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     LinearViscoelasticMaterial *pu;
+
+    DlgNewMaterial *newMaterial = new DlgNewMaterial();
+
+    QString version = QString(" 1.0.0");
+    //DlgAbout *about = new DlgAbout(version);
 };
 #endif // MAINWINDOW_H
