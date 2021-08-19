@@ -14,6 +14,7 @@ DlgAbout::DlgAbout(QString version, QWidget *parent) :
                 " - Email: redtower.soft@gmail.com\n"
                 " - LinkedIn: luiscarlos-rojastorres-fem/"
     );
+
     ui->lbl_About->setText(text);
 }
 
