@@ -31,7 +31,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_elastic">
       <attribute name="title">
@@ -52,7 +52,7 @@
            <property name="minimumSize">
             <size>
              <width>150</width>
-             <height>0</height>
+             <height>186</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -87,13 +87,13 @@
             <number>2</number>
            </property>
            <property name="minimum">
-            <double>45.000000000000000</double>
+            <double>0.000000000000000</double>
            </property>
            <property name="maximum">
             <double>200.000000000000000</double>
            </property>
            <property name="value">
-            <double>45.000000000000000</double>
+            <double>0.000000000000000</double>
            </property>
           </widget>
          </item>
@@ -184,7 +184,7 @@
              <property name="minimumSize">
               <size>
                <width>150</width>
-               <height>0</height>
+               <height>56</height>
               </size>
              </property>
              <property name="text">
@@ -226,7 +226,7 @@
              <property name="minimumSize">
               <size>
                <width>150</width>
-               <height>0</height>
+               <height>56</height>
               </size>
              </property>
              <property name="text">
@@ -268,7 +268,7 @@
              <property name="minimumSize">
               <size>
                <width>150</width>
-               <height>0</height>
+               <height>56</height>
               </size>
              </property>
              <property name="text">

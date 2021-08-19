@@ -17,6 +17,9 @@ public:
     explicit DlgNewMaterial(QWidget *parent = nullptr);
     ~DlgNewMaterial();
 
+    void removeRows();
+    void setViscousTableFromVectors(std::vector<double> gi,std::vector<double> Taui);
+
 public slots:
     virtual void accept();
 
@@ -32,6 +35,11 @@ private:
 
     int currentNumOfRows = 1;
     QTableWidgetItem *dummyItem; //Para viscousTableWidget
+
+    //TODO: Estes vetores devem ser substituidos por um objeto do tipo LinearViscoelastic
+    std::vector<double> gi = {0.1972,0.1403,0.0971,0.0706,0.05,0.0333,0.0206,0.0176};
+    std::vector<double> Taui = {0.581,3.13,18.8,125,1040,10900,160000,5220000};
+
 };
 
 #endif // DLGNEWMATERIAL_H

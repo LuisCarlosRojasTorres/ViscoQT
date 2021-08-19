@@ -53,6 +53,16 @@ DlgNewMaterial::~DlgNewMaterial()
     delete ui;
 }
 
+void DlgNewMaterial::setViscousTableFromVectors(std::vector<double> gi, std::vector<double> Taui)
+{
+    for(int i = 0; i < gi.size(); i++){
+        dummyItem = new QTableWidgetItem(QString::number(gi.at(i)));
+        ui->viscousTableWidget->setItem(i,0,dummyItem);
+        dummyItem = new QTableWidgetItem(QString::number(Taui.at(i)));
+        ui->viscousTableWidget->setItem(i,1,dummyItem);
+    }
+}
+
 void DlgNewMaterial::accept()
 {
     QDialog::accept();
@@ -84,7 +94,6 @@ void DlgNewMaterial::setRows(int index)
             currentNumOfRows--;
         }
     }
-
 }
 
 void DlgNewMaterial::setViscousDefault(int index)
@@ -92,28 +101,13 @@ void DlgNewMaterial::setViscousDefault(int index)
     //TODO: Precisa ser refatorado!!!, fiz priorizando funcionalidade...
     if(index == 0){
         std::cout << "DlgNewMaterial::setVISCOUSDefault(FALSE)" << std::endl;
-        //ui->viscousTableWidget->insertRow(currentNumOfRows-1);
-//        dummyItem = new QTableWidgetItem(QString("111"));
-//        ui->viscousTableWidget->setItem(0,0,dummyItem);
-//        dummyItem = new QTableWidgetItem(QString("222"));
-//        ui->viscousTableWidget->setItem(0,1,dummyItem);
-//        dummyItem = new QTableWidgetItem(QString("111"));
-//        ui->viscousTableWidget->setItem(1,0,dummyItem);
-//        dummyItem = new QTableWidgetItem(QString("222"));
-//        ui->viscousTableWidget->setItem(1,1,dummyItem);
+        ui->viscousTableWidget->clearContents();
+        ui->sB_numOfTerms->setValue(1);
 
     }else{
         std::cout << "DlgNewMaterial::setVISCOUSDefault(TRUE)" << std::endl;
-//        dummyItem = new QTableWidgetItem(QString("0.1972"));
-//        ui->viscousTableWidget->setItem(0,0,dummyItem);
-//        dummyItem = new QTableWidgetItem(QString("0.581"));
-//        ui->viscousTableWidget->setItem(0,1,dummyItem);
-
-//        ui->viscousTableWidget->insertRow(1);
-//        dummyItem = new QTableWidgetItem(QString("0.1972"));
-//        ui->viscousTableWidget->setItem(1,0,dummyItem);
-//        dummyItem = new QTableWidgetItem(QString("0.581"));
-//        ui->viscousTableWidget->setItem(1,1,dummyItem);
+        ui->sB_numOfTerms->setValue(8);
+        setViscousTableFromVectors(gi, Taui);
 
     }
 }
