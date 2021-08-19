@@ -15,6 +15,8 @@ public:
     explicit DlgNewMaterial(QWidget *parent = nullptr);
     ~DlgNewMaterial();
 
+public slots:
+    virtual void accept();
 private:
     Ui::DlgNewMaterial *ui;
 };

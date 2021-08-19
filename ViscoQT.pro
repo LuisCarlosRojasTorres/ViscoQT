@@ -9,17 +9,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    DlgAbout.cpp \
     DlgNewMaterial.cpp \
     LinearViscoelasticMaterial.cpp \
     main.cpp \
     MainWindow.cpp
 
 HEADERS += \
+    DlgAbout.h \
     DlgNewMaterial.h \
     LinearViscoelasticMaterial.h \
     MainWindow.h
 
 FORMS += \
+    DlgAbout.ui \
     DlgNewMaterial.ui \
     MainWindow.ui
 

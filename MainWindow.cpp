@@ -13,7 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     pu = new LinearViscoelasticMaterial();
 
-    connect(ui->action_newMaterial, &QAction::triggered, newMaterial, &DlgNewMaterial::exec);
+    connect(ui->actionNewMaterial, &QAction::triggered, newMaterial, &DlgNewMaterial::exec);
+    connect(ui->actionAbout, &QAction::triggered, about, &DlgAbout::exec);
 
 //    std::cout << "Ep: " << pu->getStorageModulus(20,0.05) << std::endl;
 //    std::cout << "Epp: " << pu->getLossModulus(20,0.05) << std::endl;

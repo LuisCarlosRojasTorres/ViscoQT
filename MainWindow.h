@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+#include "DlgAbout.h"
 #include "DlgNewMaterial.h"
 
 QT_BEGIN_NAMESPACE
@@ -34,9 +35,11 @@ private:
     Ui::MainWindow *ui;
     LinearViscoelasticMaterial *pu;
 
+    //FILE
     DlgNewMaterial *newMaterial = new DlgNewMaterial();
 
+    //HELP
     QString version = QString(" 1.0.0");
-    //DlgAbout *about = new DlgAbout(version);
+    DlgAbout *about = new DlgAbout(version);
 };
 #endif // MAINWINDOW_H

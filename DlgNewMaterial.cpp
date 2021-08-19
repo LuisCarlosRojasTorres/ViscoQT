@@ -7,9 +7,16 @@ DlgNewMaterial::DlgNewMaterial(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(QString("New Material"));
+
+    ui->cB_materialModel->addItem("Linear Viscoelastic");
 }
 
 DlgNewMaterial::~DlgNewMaterial()
 {
     delete ui;
+}
+
+void DlgNewMaterial::accept()
+{
+    QDialog::accept();
 }

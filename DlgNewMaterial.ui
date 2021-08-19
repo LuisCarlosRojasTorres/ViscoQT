@@ -42,7 +42,7 @@
         <rect>
          <x>70</x>
          <y>20</y>
-         <width>218</width>
+         <width>258</width>
          <height>22</height>
         </rect>
        </property>
@@ -70,15 +70,30 @@
          <widget class="QDoubleSpinBox" name="dSB_ElasticModulus">
           <property name="minimumSize">
            <size>
-            <width>60</width>
+            <width>90</width>
             <height>0</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>60</width>
+            <width>90</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="suffix">
+           <string> [MPa]</string>
+          </property>
+          <property name="decimals">
+           <number>2</number>
+          </property>
+          <property name="minimum">
+           <double>45.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>200.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>101.900000000000006</double>
           </property>
          </widget>
         </item>
@@ -170,15 +185,21 @@
             <widget class="QDoubleSpinBox" name="dSB_c1">
              <property name="minimumSize">
               <size>
-               <width>60</width>
+               <width>100</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>60</width>
+               <width>100</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="suffix">
+              <string/>
+             </property>
+             <property name="value">
+              <double>7.320000000000000</double>
              </property>
             </widget>
            </item>
@@ -203,15 +224,21 @@
             <widget class="QDoubleSpinBox" name="dSB_c2">
              <property name="minimumSize">
               <size>
-               <width>60</width>
+               <width>100</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>60</width>
+               <width>100</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="suffix">
+              <string>  [°C]</string>
+             </property>
+             <property name="value">
+              <double>93.620000000000005</double>
              </property>
             </widget>
            </item>
@@ -236,15 +263,24 @@
             <widget class="QDoubleSpinBox" name="dSB_Tref">
              <property name="minimumSize">
               <size>
-               <width>60</width>
+               <width>100</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>60</width>
+               <width>100</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="suffix">
+              <string> [°C]</string>
+             </property>
+             <property name="decimals">
+              <number>2</number>
+             </property>
+             <property name="value">
+              <double>23.000000000000000</double>
              </property>
             </widget>
            </item>
