@@ -147,7 +147,8 @@ void DlgNewMaterial::setRows(int index)
 
 void DlgNewMaterial::setViscousDefault(int index)
 {
-    //TODO: Precisa ser refatorado!!!, fiz priorizando funcionalidade...
+    //Carrega os dados da mat
+    //Carrega dados do material default...
     if(index == 0){
         std::cout << "DlgNewMaterial::setVISCOUSDefault(FALSE)" << std::endl;
         ui->viscousTableWidget->clearContents();
@@ -163,6 +164,7 @@ void DlgNewMaterial::setViscousDefault(int index)
 
 void DlgNewMaterial::setWLFDefault(int index)
 {
+    //
     if(index == 0){
         std::cout << "DlgNewMaterial::setWLFDefault(FALSE)" << std::endl;
         ui->dSB_c1->setValue(0);

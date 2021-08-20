@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     setActionsForTemperatureAndFrequency();
 
     pu = new LinearViscoelasticMaterial();
+    pu->printData();
 
     connect(ui->actionNewMaterial, &QAction::triggered, newMaterial, &DlgNewMaterial::exec);
     connect(ui->actionAbout, &QAction::triggered, about, &DlgAbout::exec);

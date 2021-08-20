@@ -11,8 +11,12 @@ public:
     LinearViscoelasticMaterial(double E0, std::vector<double> gi,std::vector<double> Taui,
                                double c1, double c2, double Tref);
 
+    double getE0();
     std::vector<double> getGi();
     std::vector<double> getTaui();
+    double getC1();
+    double getC2();
+    double getTref();
 
     double getStorageModulus(double temperature, double frequency);
     double getLossModulus(double temperature, double frequency);
@@ -24,6 +28,8 @@ public:
     std::vector<double> getLossModulusVSFrequency(double temperature, std::vector<double> frequency);
 
     void setShiftFactor(double temperature);
+
+    void printData();
 
 
 private:

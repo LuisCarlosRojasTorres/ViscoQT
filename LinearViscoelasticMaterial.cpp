@@ -2,6 +2,7 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <iostream>
 
 LinearViscoelasticMaterial::LinearViscoelasticMaterial()
 {
@@ -29,6 +30,11 @@ LinearViscoelasticMaterial::LinearViscoelasticMaterial(
     calculateEinf();
 }
 
+double LinearViscoelasticMaterial::getE0()
+{
+    return this->E0;
+}
+
 std::vector<double> LinearViscoelasticMaterial::getGi()
 {
     return this->gi;
@@ -37,6 +43,21 @@ std::vector<double> LinearViscoelasticMaterial::getGi()
 std::vector<double> LinearViscoelasticMaterial::getTaui()
 {
     return this->Taui;
+}
+
+double LinearViscoelasticMaterial::getC1()
+{
+    return this->c1;
+}
+
+double LinearViscoelasticMaterial::getC2()
+{
+    return this->c2;
+}
+
+double LinearViscoelasticMaterial::getTref()
+{
+    return this->Tref;
 }
 
 double LinearViscoelasticMaterial::getStorageModulus(
@@ -118,6 +139,21 @@ void LinearViscoelasticMaterial::setShiftFactor(double temperature)
 {
     //Calcula o shift factor at para uma temperatura dada
     this->at = pow(10,-(c1*(temperature-Tref))/(c2+temperature-Tref));
+}
+
+void LinearViscoelasticMaterial::printData()
+{
+    std::cout << "Linear Viscoelastic Material: " << std::endl;
+    std::cout << " - E(0): " << this->E0 << std::endl;
+    for(int i = 0; i < this->Taui.size(); i++){
+        std::cout << " - i: " << i
+                  << " , gi: " << this->gi.at(i)
+                  << ", Ei: " << this->Ei.at(i)
+                  << ", Taui: " << this->Taui.at(i) << std::endl;
+    }
+    std::cout << "   WLF parameters: " << std::endl;
+    std::cout << " - c1: " << this->c1 << ", c2: " << this->c2<< ", Tref: " << this->Tref << std::endl;
+
 }
 
 void LinearViscoelasticMaterial::calculateEinf()
