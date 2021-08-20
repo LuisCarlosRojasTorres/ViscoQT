@@ -3,13 +3,16 @@
 
 #include <vector>
 
+
 class LinearViscoelasticMaterial
 {
 public:
     LinearViscoelasticMaterial();
-    LinearViscoelasticMaterial(double E0, std::vector<double> Ei,std::vector<double> Taui,
+    LinearViscoelasticMaterial(double E0, std::vector<double> gi,std::vector<double> Taui,
                                double c1, double c2, double Tref);
 
+    std::vector<double> getGi();
+    std::vector<double> getTaui();
 
     double getStorageModulus(double temperature, double frequency);
     double getLossModulus(double temperature, double frequency);
@@ -20,18 +23,25 @@ public:
     std::vector<double> getStorageModulusVSFrequency(double temperature, std::vector<double> frequency);
     std::vector<double> getLossModulusVSFrequency(double temperature, std::vector<double> frequency);
 
+    void setShiftFactor(double temperature);
+
 
 private:
-    const double PI = 3.14159265;
 
-    double E0,Einf;
-    std::vector<double> Ei;
-    std::vector<double> Taui;
+    double E0; //Instantaneous elastic modulus
+    std::vector<double> gi; //normalized elastic parameters
+    std::vector<double> Taui; //relaxation times
 
     //WLF parameters
     double c1,c2,Tref;
 
+    //Variaveis que sao calculadas
+    double Einf;
+    double at = 1; //Shift factor
+    std::vector<double> Ei; // elastic modulus
+
     void calculateEinf();
+    void calculateEi();
 
 };
 

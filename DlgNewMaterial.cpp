@@ -76,10 +76,12 @@ void DlgNewMaterial::validateElasticData()
 
 void DlgNewMaterial::validateViscousData()
 {
+    //Verifica que todos os valores da tabela sao maiores de zero
+    //caso contrario isValidMaterial = false
     for(int i = 0; i < ui->viscousTableWidget->rowCount(); i++){
         double dummyGi = ui->viscousTableWidget->model()->index(i,0).data().toDouble();
         double dummyTaui = ui->viscousTableWidget->model()->index(i,1).data().toDouble();
-        if((dummyGi == 0)||(dummyTaui == 0)){
+        if((dummyGi <= 0)||(dummyTaui <= 0)){
             std::cout << "INVALID VALUE AT i: " << i+1 << " , gi: " << dummyGi << " , Taui: " << dummyTaui << std::endl;
             isValidMaterial = false;
             break;
@@ -89,13 +91,13 @@ void DlgNewMaterial::validateViscousData()
 
 void DlgNewMaterial::validateWLFData()
 {
+    //Verifica que os valores sao diferentes de ZERO
     if( ( ui->dSB_Tref ->value()== 0) ||
         ( ui->dSB_c1 ->value()== 0) ||
         ( ui->dSB_c2 ->value()== 0)
     ){
         isValidMaterial = false;
     }
-
 }
 
 void DlgNewMaterial::accept()
@@ -108,7 +110,6 @@ void DlgNewMaterial::accept()
         QDialog::accept();
     }
     else{
-
         QMessageBox::warning(this, tr("New Material"),
                                        tr("Invalid material!.\n"
                                           "Zero values in input data"));
