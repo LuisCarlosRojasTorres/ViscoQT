@@ -23,6 +23,9 @@ public:
 
     void setActionsForTemperatureAndFrequency();
 
+public slots:
+    void loadDlgNewMaterial();
+
 private slots:
     void on_pB_AddTemp_clicked();
 
@@ -37,7 +40,7 @@ private:
 
 
     //FILE
-    DlgNewMaterial *newMaterial = new DlgNewMaterial();
+    DlgNewMaterial *newMaterial;// = new DlgNewMaterial();
 
     //HELP
     QString version = QString(" 1.0.0");

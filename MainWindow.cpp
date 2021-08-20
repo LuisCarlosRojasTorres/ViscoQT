@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     pu = new LinearViscoelasticMaterial();
     pu->printData();
 
-    connect(ui->actionNewMaterial, &QAction::triggered, newMaterial, &DlgNewMaterial::exec);
+    connect(ui->actionNewMaterial, &QAction::triggered, this, &MainWindow::loadDlgNewMaterial);
     connect(ui->actionAbout, &QAction::triggered, about, &DlgAbout::exec);
 
 //    std::cout << "Ep: " << pu->getStorageModulus(20,0.05) << std::endl;
@@ -48,6 +48,12 @@ void MainWindow::setActionsForTemperatureAndFrequency()
 
     connect(addFreq, SIGNAL(triggered()), this, SLOT(on_pB_AddTempFreq_clicked()));
     connect(deleteFreq, SIGNAL(triggered()), this, SLOT(on_pB_DeleteFreq_clicked()));
+}
+
+void MainWindow::loadDlgNewMaterial()
+{
+    newMaterial = new DlgNewMaterial();
+    newMaterial->exec();
 }
 
 void MainWindow::on_pB_AddTemp_clicked()
