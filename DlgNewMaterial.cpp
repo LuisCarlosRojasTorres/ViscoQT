@@ -1,7 +1,9 @@
 #include "DlgNewMaterial.h"
 #include "ui_DlgNewMaterial.h"
 
+#include <QMessageBox>
 #include <QStringLiteral>
+
 #include <iostream>
 
 DlgNewMaterial::DlgNewMaterial(QWidget *parent) :
@@ -63,9 +65,47 @@ void DlgNewMaterial::setViscousTableFromVectors(std::vector<double> gi, std::vec
     }
 }
 
+void DlgNewMaterial::elasticDataValidator()
+{
+    //Tem que ser maior do que ZERO
+    //O rango de valores possíveis esta determinado na GUI
+    if(ui->dSB_ElasticModulus->value() == 0){
+        isValidMaterial = false;
+    }
+}
+
+void DlgNewMaterial::viscousDataValidator()
+{
+
+}
+
+void DlgNewMaterial::wlfDataValidator()
+{
+    if( ( ui->dSB_Tref ->value()== 0) ||
+        ( ui->dSB_c1 ->value()== 0) ||
+        ( ui->dSB_c2 ->value()== 0)
+    ){
+        isValidMaterial = false;
+    }
+
+}
+
 void DlgNewMaterial::accept()
 {
-    QDialog::accept();
+    elasticDataValidator();
+    viscousDataValidator();
+    wlfDataValidator();
+
+    if(isValidMaterial){
+        QDialog::accept();
+    }
+    else{
+
+        QMessageBox::warning(this, tr("New Material"),
+                                       tr("Invalid material!.\n"
+                                          "Zero values in input data"));
+    }
+
 }
 
 void DlgNewMaterial::setElasticDefault(int index)

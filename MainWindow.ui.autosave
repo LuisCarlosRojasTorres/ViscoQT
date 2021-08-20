@@ -24,17 +24,6 @@
        <attribute name="title">
         <string>Stress relaxation curves</string>
        </attribute>
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>100</y>
-          <width>160</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_13"/>
-       </widget>
        <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
