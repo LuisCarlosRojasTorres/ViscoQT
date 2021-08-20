@@ -24,17 +24,6 @@
        <attribute name="title">
         <string>Stress relaxation curves</string>
        </attribute>
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>100</y>
-          <width>160</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_13"/>
-       </widget>
        <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
@@ -69,18 +58,21 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="spinBox_TotalTime">
+              <widget class="QSpinBox" name="sB_TotalTime">
                <property name="minimumSize">
                 <size>
-                 <width>100</width>
+                 <width>90</width>
                  <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>100</width>
+                 <width>90</width>
                  <height>16777215</height>
                 </size>
+               </property>
+               <property name="suffix">
+                <string> [s]</string>
                </property>
                <property name="maximum">
                 <number>1000000</number>
@@ -114,18 +106,27 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditTemp_StressRel">
+              <widget class="QSpinBox" name="sB_TempStressRel">
                <property name="minimumSize">
                 <size>
-                 <width>100</width>
+                 <width>90</width>
                  <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>100</width>
+                 <width>90</width>
                  <height>16777215</height>
                 </size>
+               </property>
+               <property name="suffix">
+                <string> [s]</string>
+               </property>
+               <property name="maximum">
+                <number>1000000</number>
+               </property>
+               <property name="value">
+                <number>1000</number>
                </property>
               </widget>
              </item>
@@ -216,7 +217,7 @@
          <rect>
           <x>30</x>
           <y>40</y>
-          <width>247</width>
+          <width>270</width>
           <height>525</height>
          </rect>
         </property>
@@ -258,15 +259,18 @@
                <widget class="QDoubleSpinBox" name="dSB_initialFreq">
                 <property name="minimumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="suffix">
+                 <string> [Hz]</string>
                 </property>
                 <property name="minimum">
                  <double>0.010000000000000</double>
@@ -306,15 +310,18 @@
                <widget class="QDoubleSpinBox" name="dSB_finalFreq">
                 <property name="minimumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="suffix">
+                 <string> [Hz]</string>
                 </property>
                 <property name="minimum">
                  <double>0.010000000000000</double>
@@ -469,24 +476,30 @@
                <widget class="QDoubleSpinBox" name="dSB_initialTemp">
                 <property name="minimumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="suffix">
+                 <string> [°C]</string>
+                </property>
                 <property name="minimum">
-                 <double>0.010000000000000</double>
+                 <double>0.000000000000000</double>
                 </property>
                 <property name="maximum">
-                 <double>20.000000000000000</double>
+                 <double>100.000000000000000</double>
                 </property>
                 <property name="singleStep">
                  <double>0.010000000000000</double>
+                </property>
+                <property name="value">
+                 <double>0.000000000000000</double>
                 </property>
                </widget>
               </item>
@@ -517,21 +530,24 @@
                <widget class="QDoubleSpinBox" name="dSB_finalTemp">
                 <property name="minimumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>60</width>
+                  <width>90</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="suffix">
+                 <string> [°C]</string>
                 </property>
                 <property name="minimum">
                  <double>0.010000000000000</double>
                 </property>
                 <property name="maximum">
-                 <double>20.000000000000000</double>
+                 <double>100.000000000000000</double>
                 </property>
                 <property name="singleStep">
                  <double>0.010000000000000</double>

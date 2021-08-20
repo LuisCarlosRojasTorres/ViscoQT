@@ -65,7 +65,7 @@ void DlgNewMaterial::setViscousTableFromVectors(std::vector<double> gi, std::vec
     }
 }
 
-void DlgNewMaterial::elasticDataValidator()
+void DlgNewMaterial::validateElasticData()
 {
     //Tem que ser maior do que ZERO
     //O rango de valores possíveis esta determinado na GUI
@@ -74,12 +74,20 @@ void DlgNewMaterial::elasticDataValidator()
     }
 }
 
-void DlgNewMaterial::viscousDataValidator()
+void DlgNewMaterial::validateViscousData()
 {
-
+    for(int i = 0; i < ui->viscousTableWidget->rowCount(); i++){
+        double dummyGi = ui->viscousTableWidget->model()->index(i,0).data().toDouble();
+        double dummyTaui = ui->viscousTableWidget->model()->index(i,1).data().toDouble();
+        if((dummyGi == 0)||(dummyTaui == 0)){
+            std::cout << "INVALID VALUE AT i: " << i+1 << " , gi: " << dummyGi << " , Taui: " << dummyTaui << std::endl;
+            isValidMaterial = false;
+            break;
+        }
+    }
 }
 
-void DlgNewMaterial::wlfDataValidator()
+void DlgNewMaterial::validateWLFData()
 {
     if( ( ui->dSB_Tref ->value()== 0) ||
         ( ui->dSB_c1 ->value()== 0) ||
@@ -92,9 +100,9 @@ void DlgNewMaterial::wlfDataValidator()
 
 void DlgNewMaterial::accept()
 {
-    elasticDataValidator();
-    viscousDataValidator();
-    wlfDataValidator();
+    validateElasticData();
+    validateViscousData();
+    validateWLFData();
 
     if(isValidMaterial){
         QDialog::accept();

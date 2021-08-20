@@ -23,9 +23,9 @@ public:
 
     //Ao apertar ACCEPT primeiro tem que validar os dados elastic, a viscousTab e os parametros WLF
     //se qualquer um da false a variavel isValidMaterial = false
-    void elasticDataValidator();
-    void viscousDataValidator();
-    void wlfDataValidator();
+    void validateElasticData();
+    void validateViscousData();
+    void validateWLFData();
 
 public slots:
     virtual void accept();
