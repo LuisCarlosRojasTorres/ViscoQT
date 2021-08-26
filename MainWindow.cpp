@@ -1,7 +1,10 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "LinearViscoelasticMaterial.h"
+
+#include <Eigen/Dense>
 #include <iostream>
+#include <math.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

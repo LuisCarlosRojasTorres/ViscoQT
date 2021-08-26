@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -13,18 +13,22 @@ SOURCES += \
     DlgNewMaterial.cpp \
     LinearViscoelasticMaterial.cpp \
     main.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     DlgAbout.h \
     DlgNewMaterial.h \
     LinearViscoelasticMaterial.h \
-    MainWindow.h
+    MainWindow.h \
+    qcustomplot.h
 
 FORMS += \
     DlgAbout.ui \
     DlgNewMaterial.ui \
     MainWindow.ui
+
+INCLUDEPATH += "C:\RedTowerLibs\eigen-3.4.0"
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
